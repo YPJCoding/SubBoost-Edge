@@ -3,6 +3,7 @@
   "name": "edgesub",
   "main": "worker/index.ts",
   "compatibility_date": "2026-02-07",
+  "workers_dev": true,
   "vars": {
     "SUBCONVERTER_BACKEND": "https://api.dler.io/sub",
     "SUBCONVERTER_FALLBACK_BACKENDS": "https://pub-api-1.bianyuan.xyz/sub,https://api.wcc.best/sub"
@@ -23,6 +24,12 @@
   // Must name this Worker itself: each scheduled refresh then runs in its
   // own invocation with its own CPU budget instead of sharing the cron's.
   "services": [{ "binding": "SELF", "service": "edgesub" }],
+  "routes": [
+    {
+      "pattern": "sub.ypjcoding.com",
+      "custom_domain": true
+    }
+  ],
   "durable_objects": {
     "bindings": [{ "name": "SUB_STORE", "class_name": "SubscriptionStore" }]
   },
