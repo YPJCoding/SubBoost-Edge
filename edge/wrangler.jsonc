@@ -1,6 +1,6 @@
 {
   "$schema": "../node_modules/wrangler/config-schema.json",
-  "name": "test",
+  "name": "edgesub",
   "main": "worker/index.ts",
   "compatibility_date": "2026-02-07",
   "vars": {
@@ -17,12 +17,12 @@
   "kv_namespaces": [
     {
       "binding": "SUB_KV",
-      "id": "58db6bee88a44a19a9457a465d6eb693"
+      "id": "7ce17a19f91549cc865dd6a914c68c63"
     }
   ],
   // Must name this Worker itself: each scheduled refresh then runs in its
   // own invocation with its own CPU budget instead of sharing the cron's.
-  "services": [{ "binding": "SELF", "service": "test" }],
+  "services": [{ "binding": "SELF", "service": "edgesub" }],
   "durable_objects": {
     "bindings": [{ "name": "SUB_STORE", "class_name": "SubscriptionStore" }]
   },
